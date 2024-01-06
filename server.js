@@ -2,17 +2,17 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const routes = require('./controllers');
+const routes = require('./controllers/index');
 const helpers = require('./utils/');
 
 const sequelize = require('.config/connection');
-const SequelizeBlog = require('connect-session-sequelize')(session.Blog);
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 9001;
 
 // set up Handlebars with Helpers
-const hbs = exphbs.creat({helpers});
+const hbs = exphbs.create({helpers});
 
 const sess = {
     secret: 'Super secret secret',
@@ -24,7 +24,7 @@ const sess = {
     },
     resave: false, 
     saveUninitialized: true, 
-    blog: new SequelizeBlog({
+    blog: new SequelizeStore({
         db: sequelize
     })
 };
@@ -42,5 +42,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({force: false}).then(()=>{
-    app.listen(PORT, ()=> console.log('Now listening to http://localhost:${PORT}'));
+    app.listen(PORT, ()=> console.log(`Now listening to http://localhost:${PORT}`));
 });
