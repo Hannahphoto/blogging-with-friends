@@ -5,5 +5,16 @@
     "express": "^4.18.2",
     "express-handlebars": "^7.1.2",
     "express-session": "^1.17.3"
-  }
+  },
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seeds/seed.js"
+  },
+  "name": "blogging-with-friends",
+  "description": "A site for friends to post their writings and comment on each others posts.",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "author": "Hannah Price",
+  "license": "MIT"
 }
