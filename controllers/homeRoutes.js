@@ -36,7 +36,7 @@ router.get('/project/:id', async (req, res)=>{
                     attributes: ['name'],
                 },
             ],
-        }),
+        });
 
         const project = projectData.get({plain: true});
 
