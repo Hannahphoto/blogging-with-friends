@@ -49,7 +49,7 @@ a:hover{
 .containerPost {
     margin: 20px;
     height: 250px;
-    border: 5px solid black;
+    border: 2px solid black;
     border-radius: 5px;
     width: 1000px;
     font-size: 'Georama', sans-serif;
@@ -57,14 +57,15 @@ a:hover{
     font-size: 15px;
     font-weight: 200;
     position: absolute;
-    left: 300px;
+    left: 250px;
     
 }
 
 .login-card{
     margin-top: 100px; 
+    padding: 10px;
     height: 200px;
-    border: 5px solid black;
+    border: 2px solid black;
     border-radius: 5px;
     width: 350px;
     font-size: 'Georama', sans-serif;
@@ -79,8 +80,9 @@ a:hover{
 
 .signin-card{
     margin-top: 100px;
+    padding: 10px;
     height: 200px;
-    border: 5px solid black;
+    border: 2px solid black;
     border-radius: 5px;
     width: 350px;
     font-size: 'Georama', sans-serif;
@@ -101,7 +103,14 @@ a:hover{
 }
 
 .btn-primary{
+    font-size: 'Georama', sans-serif;
+    font-family: 'Unbounded', sans-serif;
+    padding: 5px;
+    border-radius: 5px;
     align-self: center;
     background-color: black;
     color: white;
+    font-weight: 375;
+    position: absolute;
+    /* left: 135px; */
 }
