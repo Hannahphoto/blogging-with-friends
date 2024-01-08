@@ -3,7 +3,7 @@ const path = require('path');
 const session = require('express-session');
 //3rd party middleware
 const exphbs = require('express-handlebars');
-const routes = require('./controllers/index');
+const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
