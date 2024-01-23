@@ -75,7 +75,7 @@ a:hover{
     font-size: 15px;
     font-weight: 200;
     position: absolute;
-    left: 450px;
+    left: 150px;
     justify-content:space-between;
     /* text-align: center;*/
 }
@@ -94,7 +94,7 @@ a:hover{
     font-size: 15px;
     font-weight: 200;
     position: absolute;
-    left: 900px;
+    left: 575px;
     justify-content:space-between;
     /* text-align: center; */
 }

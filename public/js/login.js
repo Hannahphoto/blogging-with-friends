@@ -3,9 +3,9 @@ const loginFormHandler = async function(event) {
 
     // const email = document.querySelector('#email-login');
     const password = document.querySelector('#password-login');
-      const name = document.querySelector('#name-login');
+    const email = document.querySelector('email-login');
 
-    // if(email && password){
+    if(email && password){
         const response = await fetch('/api/user/login',{
             method: 'POST',
             body: JSON.stringify({
@@ -20,8 +20,8 @@ const loginFormHandler = async function(event) {
         }else{
             alert('Failed to log in!');
         }
-    };
-// };
+};
+};
 
 const signupFormHandler = async (event)=>{
     event.preventDefault();
