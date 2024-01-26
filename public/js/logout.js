@@ -1,6 +1,6 @@
-const { response } = require("express");
+//this file is not being used
 
-const logout = async () =>{
+async function logout(){
     const response = await fetch('/api/users/logout',{
         method: 'POST',
         headers: {'Content-Type': 'application/jsaon'},

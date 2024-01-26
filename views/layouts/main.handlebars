@@ -22,20 +22,19 @@
 <body>
     <header>
         <nav>
-            {{!-- {{#if logged_in}} --}}
             <h1>Tech Blog </h1>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/project">Dashboard</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
                 <li></li><a href="/login">Login</a></li>
-                <li></li><a href="">Logout</a></li>
+                <li></li><a href='/api/users/logout'>Logout</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="containerPost">
+    <main >
         {{{body}}}
     </main>
 </body>
-<script src=".../public/js/logout.js"></script>
+
 </html>
