@@ -47,7 +47,7 @@ a:hover{
 }
 
 .containerPost {
-    margin: 20px;
+    margin: 50px;
     height: 250px;
     border: 2px solid black;
     border-radius: 5px;
@@ -57,7 +57,7 @@ a:hover{
     font-size: 15px;
     font-weight: 200;
     position: absolute;
-    left: 250px;
+    left: 350px;
     
 }
 
@@ -75,7 +75,7 @@ a:hover{
     font-size: 15px;
     font-weight: 200;
     position: absolute;
-    left: 150px;
+    left: 500px;
     justify-content:space-between;
     /* text-align: center;*/
 }
@@ -94,7 +94,7 @@ a:hover{
     font-size: 15px;
     font-weight: 200;
     position: absolute;
-    left: 575px;
+    left: 975px;
     justify-content:space-between;
     /* text-align: center; */
 }
