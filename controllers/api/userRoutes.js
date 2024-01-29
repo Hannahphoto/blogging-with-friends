@@ -13,9 +13,12 @@ router.post('/register', async (req, res)=> {
         console.log("Registration Successful:", userData);
         req.session.save(()=>{
             req.session.userId = userData.id;
+            req.session.username = userData.username;
+            req.session.email = userData.email;
+            req.session.password = userData.password;
             req.session.logged_in = true;
-            req.statusCode(200).json(userData)
         });
+        res.status(200).json(userData)
     }catch (err){
         if (err.name === 'SequelizeValidationError') {
             console.error('Validation error during registration:', err.errors);
@@ -52,7 +55,9 @@ router.post('/login',async (req, res)=> {
 
         req.session.save(()=>{
             req.session.user_id = userData.id;
-            req.session.name = userData.name;
+            req.session.username = userData.username;
+            req.session.email = userData.email;
+            req.session.password = userData.password;
             req.session.logged_in = true;
 
             res.json({user, message: 'You are now logged in!'})
