@@ -1,18 +1,30 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.post('/', async (req, res)=> {
+//register a new user
+router.post('/register', async (req, res)=> {
     try{
-        const userData = await User.create(req.body);
-
+        console.log('Request received:', req.body);
+        const userData = await User.create({
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password,
+        });
+        console.log("Registration Successful:", userData);
         req.session.save(()=>{
-            req.session.user_id = userData.id;
+            req.session.userId = userData.id;
             req.session.logged_in = true;
-
             req.statusCode(200).json(userData)
         });
     }catch (err){
-        res.status(400).json(err);
+        if (err.name === 'SequelizeValidationError') {
+            console.error('Validation error during registration:', err.errors);
+            res.status(400).json({ message: 'Validation error', errors: err.errors });
+        }else{
+            console.log("Error during registration:", err);
+            res.status(500).json(err);
+        }
+        
     }
 });
 
@@ -62,44 +74,66 @@ router.get('/logout', (req, res)=>{
     }
 });
 
-//create a user login
-router.post("/", async (req, res) => {
+// //create a user login
+// router.post("/", async (req, res) => {
+//     try{
+//         const userData = await User.create({
+//             username: req.body.username,
+//             email: req.body.email,
+//             password: req.body.password,
+//         });
+//         req.session.save(()=>{
+//             req.session.userId = userData.id;
+//             req.session.logged_in = true;
+//             res.status(200).json(userData);
+//         });
+//     }catch (err){
+//         console.log(err);
+//         res.status(500).json(err);
+//     }
+// });
+
+//update user login info
+// router.put("/", async (req, res)=>{
+//     try{
+//         const userData = await User.update({
+//             username: req.body.username,
+//             email: req.body.email, 
+//             password: req.body.password,
+//             where: {
+//                 id: req.session.userId,
+//             },
+//         });
+//     } catch(err){
+//         console.log(err);
+//         res.status(500).json(err);
+//     };
+// });
+
+//update user login info
+router.put('/update',async (req, res)=>{
     try{
-        const userData = await User.create({
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password,
-        });
-        req.session.save(()=>{
-            req.session.userId = userData.id;
-            req.session.logged_in = true;
-            res.status(200).json(userData);
-        });
-    }catch (err){
+        await User.update(
+            {
+                username: req.body.username,
+                email: req.body.email,
+                password: req.body.password,
+            },
+            {
+                where: {
+                    id: req.session.userId,
+                },
+            },
+        );
+        res.status(200).json({message: 'User info updated successfuly'})
+    }catch(err){
         console.log(err);
         res.status(500).json(err);
     }
 });
 
-//update user login info
-router.put("/", async (req, res)=>{
-    try{
-        const userData = await User.update({
-            username: req.body.username,
-            email: req.body.email, 
-            password: req.body.password,
-            where: {
-                id: req.session.userId,
-            },
-        });
-    } catch(err){
-        console.log(err);
-        res.status(500).json(err);
-    };
-});
 
-
-//get-make a user
+//get user information
 router.get("/getuser", async (req, res)=>{
     try{
         const userData = await User.findOne(

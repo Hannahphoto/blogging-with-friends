@@ -71,39 +71,41 @@ a:hover{
 
 .login-card{
     /* display: flex; */
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
+    justify-content:space-between;
     margin-top: 100px; 
     padding: 10px;
     height: 215px;
     border: 3px solid black;
     border-radius: 5px;
-    width: 350px;
+    width: 300px;
     font-size: 'Georama', sans-serif;
     font-family: 'Unbounded', sans-serif;
     font-size: 15px;
     font-weight: 200;
     position: absolute;
     left: 400px;
-    /* justify-content:space-between; */
+    
     /* text-align: center;*/
 }
 
 .signin-card{
     /* display: flex; */
     flex-wrap: wrap;
+    justify-content:space-between;
     margin-top: 100px;
     padding: 10px;
     height: 215px;
     border: 3px solid black;
     border-radius: 5px;
-    width: 350px;
+    width: 300px;
     font-size: 'Georama', sans-serif;
     font-family: 'Unbounded', sans-serif;
     font-size: 15px;
     font-weight: 200;
     position: absolute;
     left: 875px;
-    justify-content:space-between;
+    
     /* text-align: center; */
 }
 
