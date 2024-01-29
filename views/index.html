@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+    <title>Tech Blog</title>
     <!-- font for navbar -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Georama:wght@300&family=Unbounded:wght@200&display=swap" rel="stylesheet">
-    <title>Tech Blog</title>
+    
 </head>
 
 <header>
@@ -28,49 +29,21 @@
 </header>
 <body>
    
-    
-    <div class="login-page">
-        <div class="login-card">
-            <h2>Login</h2>
-            <br>
-            <form>
-                <div>
-                    <label for="email-login">Email:</label>
-                    <input class="form-input" type="text" id="email-login"/>
-                </div>
-                <div>
-                    <label for="password-login">Password:</label>
-                    <input class="form-input" type="text" id="password-login"/>
-                </div>
-                <div>
-                    <br>
-                    <button class="btn-primary" type="submit">Login</button>
-                </div>
-            </form>
-        </div>
-        <div class="signin-card">
-            <h2>Sign-Up</h2>
-            <br>
-            <form>
-                <div>
-                    <label for="username-signup">Username:</label>
-                    <input class="form-input" type="text" id="username-signup"/>
-                </div>
-                <div>
-                    <label for="email-signup">Email:</label>
-                    <input class="form-input" type="password" id="email-signup"/>
-                </div>
-                <div>
-                    <label for="password-signup">Password:</label>
-                    <input class="form-input" type="password" id="password-signup"/>
-                </div>
-                <div>
-                    <br>
-                    <button class="btn-primary" type="submit" >Sign-Up</button>
-                </div>
-            </form>
-        </div>
+    <div >
+    <button type="button" class="btn-primary" id="btn-newPost">New Post</button>
     </div>
-    <script src="/public/js/login.js"></script>
+    <div id="postBlog">
+        <h2>Create Post</h2>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+        <br>
+        <label for="content">Content:</label>
+        <br>
+        <textarea id="content" name="content" rows="35" width="500px" required></textarea>
+        <br>
+        <button class="btn-primary" id="#btn-createPost">Create Post</button>
+    </div>
+
+    
 </body>
 </html>

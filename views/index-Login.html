@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+    <!-- font for navbar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georama:wght@300&family=Unbounded&display=swap" rel="stylesheet">
+    <!-- font for blog -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georama:wght@300&family=Unbounded:wght@200&display=swap" rel="stylesheet">
+    <title>Tech Blog</title>
+</head>
+
+<header>
+    <nav>
+        <h1>Tech Blog </h1>
+            <ul>
+                <li>Home</li>
+                <li>Dashboard</li>
+                <li>Login</li>
+                <li>Logout</li>
+            </ul>
+    </nav>
+</header>
+<body>
+   
+    
+    <div class="login-page">
+        <div class="login-card">
+            <h2>Login</h2>
+            <br>
+            <form>
+                <div>
+                    <label for="email-login">Email:</label>
+                    <input class="form-input" type="text" id="email-login"/>
+                </div>
+                <div>
+                    <label for="password-login">Password:</label>
+                    <input class="form-input" type="text" id="password-login"/>
+                </div>
+                <div>
+                    <br>
+                    <button class="btn-primary" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+        <div class="signin-card">
+            <h2>Sign-Up</h2>
+            <br>
+            <form>
+                <div>
+                    <label for="username-signup">Username:</label>
+                    <input class="form-input" type="text" id="username-signup"/>
+                </div>
+                <div>
+                    <label for="email-signup">Email:</label>
+                    <input class="form-input" type="password" id="email-signup"/>
+                </div>
+                <div>
+                    <label for="password-signup">Password:</label>
+                    <input class="form-input" type="password" id="password-signup"/>
+                </div>
+                <div>
+                    <br>
+                    <button class="btn-primary" type="submit" >Sign-Up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/public/js/login.js"></script>
+</body>
+</html>

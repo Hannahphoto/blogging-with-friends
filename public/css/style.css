@@ -24,6 +24,7 @@ ul{
     text-align: right;
     font-size: 20px;
     justify-content: space-between;
+    font-weight:575;
 
 }
 
@@ -48,16 +49,17 @@ a:hover{
 
 .containerPost {
     margin: 50px;
-    height: 250px;
-    border: 2px solid black;
+    height: 550px;
+    border: 3px solid black;
     border-radius: 5px;
-    width: 1000px;
+    width: 1100px;
     font-size: 'Georama', sans-serif;
     font-family: 'Unbounded', sans-serif;
     font-size: 15px;
     font-weight: 200;
     position: absolute;
-    left: 350px;
+    left: 250px;  /*locolhost is 250*/
+    right: 250px;
     
 }
 
@@ -67,7 +69,7 @@ a:hover{
     margin-top: 100px; 
     padding: 10px;
     height: 200px;
-    border: 2px solid black;
+    border: 3px solid black;
     border-radius: 5px;
     width: 350px;
     font-size: 'Georama', sans-serif;
@@ -75,7 +77,7 @@ a:hover{
     font-size: 15px;
     font-weight: 200;
     position: absolute;
-    left: 500px;
+    left: 400px;
     justify-content:space-between;
     /* text-align: center;*/
 }
@@ -86,7 +88,7 @@ a:hover{
     margin-top: 100px;
     padding: 10px;
     height: 200px;
-    border: 2px solid black;
+    border: 3px solid black;
     border-radius: 5px;
     width: 350px;
     font-size: 'Georama', sans-serif;
@@ -94,7 +96,7 @@ a:hover{
     font-size: 15px;
     font-weight: 200;
     position: absolute;
-    left: 975px;
+    left: 875px;
     justify-content:space-between;
     /* text-align: center; */
 }
@@ -117,4 +119,37 @@ a:hover{
     font-weight: 375;
     position: absolute;
     /* left: 135px; */
+}
+
+#btn-newPost{
+    display: flex;
+    position: absolute;
+    left: 1540px;
+    top: 200px;
+    padding: 10px;
+
+}
+
+#btn-createPost{
+    display: flex;
+    position: absolute;
+    left: 100px;
+    bottom: 5%;
+}
+
+#postBlog{
+    /* display: none; */
+    display: block;
+    max-width: 500px;
+    margin: 20px;
+    padding: 5px;
+    border: 3px solid black;
+    border-radius: 5px;
+    height: 700px;
+    width: 700px;
+    margin-left: 700px;
+}
+
+#content{
+    width: 100%;
 }
