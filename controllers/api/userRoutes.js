@@ -36,12 +36,13 @@ router.post('/login',async (req, res)=> {
     try{
         const userData = await User.findOne({
             where: {
-                name: req.body.name, }});
+                email: req.body.email, 
+                password: req.body.password }});
 
         if(!userData){
             res
                 .status(400)
-                .json({message: 'Incorrect name, please try again.'});
+                .json({message: 'Incorrect username or password, please try again.'});
                 return;
         }
         const validPassword = userData.checkPassword(req.body.password);
@@ -145,6 +146,8 @@ router.get("/getuser", async (req, res)=>{
             {
                 where: {
                     id: req.session.userId,
+                    username: req.session.username,
+                    email: req.session.email,
                 },
             }
         );
