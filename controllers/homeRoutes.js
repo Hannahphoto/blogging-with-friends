@@ -27,7 +27,7 @@ router.get('/', async (req, res)=>{
 }
 });
 
-router.get('/blog/:id', async (req, res)=>{
+router.get('/dashboard/:id', async (req, res)=>{
     try{
         const blogData = await Blog.findByPk(req.params.id, {
             include: [
@@ -40,7 +40,7 @@ router.get('/blog/:id', async (req, res)=>{
 
         const blog = blogData.get({plain: true});
 
-        res.render('blog', {
+        res.render('dashbaord', {
             ...blog, 
             logged_in: req.session.logged_in
         });
@@ -53,9 +53,13 @@ router.get('/blog/:id', async (req, res)=>{
 router.get('/dashboard', withAuth, async (req, res)=>{
     try{
         //find the logged in user based on the session id
-        const userData = await User.findByPk(req.session.user_id, {
+        const userData = await Blog.findByPk(req.session.user_id, {
             attributes: {excludes: ['password']},
-            include: [{model: Blog}],
+            include: [
+                {
+                    model: Blog,
+                    attributes: ['username']
+            }],
         });
 
         const user = userData.get({plain: true});
@@ -75,7 +79,7 @@ router.get('/login', (req, res)=>{
         res.redirect('/dashboard');
         return;
     }
-    res.render('login');
+    res.render('dashboard');
 });
 
 // router.get('/project', (req, res)=>{
