@@ -1,9 +1,9 @@
 const loginFormHandler = async function(event) {
     event.preventDefault();
 
-    const email = document.querySelector('#email-login');
-    const password = document.querySelector('#password-login');
-   
+    const email = document.querySelector('#email-login').value.trim();
+    const password = document.querySelector('#password-login').value.trim();
+     console.log(email, password);
 
     if(email && password){
         const response = await fetch('/api/users/login',{
@@ -16,8 +16,9 @@ const loginFormHandler = async function(event) {
         });
 
         if(response.ok){
-            document.location.replace('/');
+            document.location.replace('/dashboard');
         }else{
+            console.log(response);
             alert('Failed to log in!');
         }
 };
@@ -43,7 +44,7 @@ const signupFormHandler = async (event)=>{
 
         if(response.ok){
             alert("Account created! Loggin you in now.")
-            document.location.replace('/');
+            document.location.replace('/dashboard');
             console.log(response)
         }else{
             alert(response.statusText)

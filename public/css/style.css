@@ -129,8 +129,13 @@ a:hover{
     /* left: 135px; */
 }
 
-.dashboard{
-
+.logout-btn{
+    font-size: 'Georama', sans-serif;
+    font-family: 'Unbounded', sans-serif;
+    background-color: transparent;
+    color: black;
+    border: transparent;
+    font-size: 20px;
 }
 
 #btn-newPost{

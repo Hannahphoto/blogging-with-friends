@@ -34,22 +34,23 @@ router.post('/register', async (req, res)=> {
 //user who has already singend up should be able to log in
 router.post('/login',async (req, res)=> {
     try{
+        console.log(req.body);
         const userData = await User.findOne({
             where: {
                 email: req.body.email, 
-                password: req.body.password }});
-
+                }});
+                console.log(userData);
         if(!userData){
             res
-                .status(400)
+                .status(404)
                 .json({message: 'Incorrect username or password, please try again.'});
                 return;
         }
         const validPassword = userData.checkPassword(req.body.password);
-
+        console.log(validPassword);
         if(!validPassword){
             res
-                .status(400)
+                .status(401)
                 .json({message: 'Incorrect password please try again.'});
                 return
         }
@@ -61,60 +62,26 @@ router.post('/login',async (req, res)=> {
             req.session.password = userData.password;
             req.session.logged_in = true;
 
-            res.json({user, message: 'You are now logged in!'})
+            res.json({userData, message: 'You are now logged in!'})
         })
     }catch(err){
-        res.status(400).json(err);
+        console.log(err);
+        res.status(500).json(err);
     }
 });
 
 //user logout
-router.get('/logout', (req, res)=>{
+router.post('/logout', (req, res)=>{
     if(req.session.logged_in){
         req.session.destroy(()=>{
-            res.redirect('/');
+            res.status(200).json({Message:"User has logged out"})
         });
     }else {
-        res.redirect('/');
+        res.status(500).json({Message: "Has not logged out"});
         
     }
 });
 
-// //create a user login
-// router.post("/", async (req, res) => {
-//     try{
-//         const userData = await User.create({
-//             username: req.body.username,
-//             email: req.body.email,
-//             password: req.body.password,
-//         });
-//         req.session.save(()=>{
-//             req.session.userId = userData.id;
-//             req.session.logged_in = true;
-//             res.status(200).json(userData);
-//         });
-//     }catch (err){
-//         console.log(err);
-//         res.status(500).json(err);
-//     }
-// });
-
-//update user login info
-// router.put("/", async (req, res)=>{
-//     try{
-//         const userData = await User.update({
-//             username: req.body.username,
-//             email: req.body.email, 
-//             password: req.body.password,
-//             where: {
-//                 id: req.session.userId,
-//             },
-//         });
-//     } catch(err){
-//         console.log(err);
-//         res.status(500).json(err);
-//     };
-// });
 
 //update user login info
 router.put('/update',async (req, res)=>{
