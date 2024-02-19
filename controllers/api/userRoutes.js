@@ -35,10 +35,14 @@ router.post('/register', async (req, res)=> {
 router.post('/login',async (req, res)=> {
     try{
         console.log('Request received:', req.body);
-        const userData = await User.findOne({
-            where: {
+        const userData = await User.findOne(
+            {
                 email: req.body.email, 
                 password: req.body.password,
+            },
+            {where: 
+                {
+                    id: req.session.userId,
                 }});
                 console.log("Hello user:", userData);
                 res.status(200).json(userData)
