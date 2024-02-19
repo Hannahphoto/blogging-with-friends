@@ -34,12 +34,14 @@ router.post('/register', async (req, res)=> {
 //user who has already singend up should be able to log in
 router.post('/login',async (req, res)=> {
     try{
-        console.log(req.body);
+        console.log('Request received:', req.body);
         const userData = await User.findOne({
             where: {
                 email: req.body.email, 
+                password: req.body.password,
                 }});
-                console.log(userData);
+                console.log("Hello user:", userData);
+                res.status(200).json(userData)
         if(!userData){
             res
                 .status(404)
@@ -56,7 +58,7 @@ router.post('/login',async (req, res)=> {
         }
 
         req.session.save(()=>{
-            req.session.user_id = userData.id;
+            req.session.userId = userData.id;
             req.session.username = userData.username;
             req.session.email = userData.email;
             req.session.password = userData.password;
