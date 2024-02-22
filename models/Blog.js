@@ -10,7 +10,6 @@ Blog.init(
     },
     {
         sequelize
-        
     }
 );
 
