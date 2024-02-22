@@ -22,15 +22,16 @@ router.get('/', async (req, res)=>{
         blog, 
         logged_in: req.session.logged_in
     });
-}catch(err){
-    res.status(500).json(err);
-}
+    }catch(err){
+        res.status(500).json(err);
+    }
 });
 
 router.get('/dashboard/:id', async (req, res)=>{
     try{
         const blogData = await Blog.findByPk(req.params.id, {
             include: [
+                User,
                 {
                     model: User,
                     attributes: ['username'],
@@ -82,11 +83,12 @@ router.get('/login', (req, res)=>{
     res.render('login');
 });
 
-// router.get('/project', (req, res)=>{
-//     //redirect to the personal blog (project) page of the user
-//     if()
-    
-// }
-// )
+router.get('/signup', (req, res)=>{
+    if (req.session.logged_in){
+        res.redirect('/');
+        return;
+    }
+    res.render('signup')
+})
 
 module.exports = router;

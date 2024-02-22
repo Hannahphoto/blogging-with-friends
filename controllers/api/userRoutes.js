@@ -18,7 +18,6 @@ router.post('/', async (req, res)=> {
 
             res.json(userData);
         });
-        // res.status(200).json(userData)
     }catch (err){
             console.log("Error during registration:", err);
             res.status(500).json(err);
@@ -35,13 +34,7 @@ router.post('/login',async (req, res)=> {
                 {
                     username: req.body.username,
                 },}
-            // {
-            //     // email: req.body.email, 
-            //     password: req.body.password,
-            // },
            );
-                // console.log("Hello user:", userData);
-                // res.status(200).json(userData)
         if(!userData){
             res.status(404).json({message: 'Incorrect username or password, please try again.'});
             return;
@@ -52,12 +45,9 @@ router.post('/login',async (req, res)=> {
             res.status(401).json({message: 'Incorrect password please try again.'});
             return;
         }
-
         req.session.save(()=>{
             req.session.userId = userData.id;
             req.session.username = userData.username;
-            // // req.session.email = userData.email;
-            // req.session.password = userData.password;
             req.session.logged_in = true;
 
             res.json({userData, message: 'You are now logged in!'})
@@ -79,30 +69,6 @@ router.post('/logout', (req, res)=>{
         
     }
 });
-
-
-//update user login info
-// router.put('/update',async (req, res)=>{
-//     try{
-//         await User.update(
-//             {
-//                 username: req.body.username,
-//                 email: req.body.email,
-//                 password: req.body.password,
-//             },
-//             {
-//                 where: {
-//                     id: req.session.userId,
-//                 },
-//             },
-//         );
-//         res.status(200).json({message: 'User info updated successfuly'})
-//     }catch(err){
-//         console.log(err);
-//         res.status(500).json(err);
-//     }
-// });
-
 
 //get user information
 router.get("/getuser", async (req, res)=>{
