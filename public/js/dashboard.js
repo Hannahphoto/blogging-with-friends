@@ -1,5 +1,5 @@
-const newPostButton = document.getElementById("#btn-newPost");
-const createPostButton = document.getElementById('#btn-createPost');
+// const newPostButton = document.getElementById("#btn-newPost");
+// const createPostButton = document.getElementById('#btn-createPost');
 
 // THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
 
