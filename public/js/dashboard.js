@@ -16,14 +16,24 @@ document.addEventListener('DOMContentLoaded',function(){
 
        postBlogForm.style.display = 'block';
     });
+
+    const createPostBtn = document.getElementById('btn-createPost');
+    //add a click event listenter to the create post button
+    if(createPostBtn){
+    createPostBtn.addEventListener('click', createPostHandler);
+    }else{
+        console.error("create psot button not found")
+    }
 });
+
+
 // THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
 
 const createPostHandler = async (event) => {
     event.preventDefault();
 
-    const name = document.querySelector('#title');
-    const description = document.querySelector('#content');
+    const name = document.querySelector('#title').value;
+    const description = document.querySelector('#content').value;
 
     if(name && description){
         const response = await fetch(`/api/dashboard`, {
@@ -41,6 +51,8 @@ const createPostHandler = async (event) => {
     }
     }
 };
+
+
 
 // document.querySelector("#btn-newPost").addEventListener('submit', createPostHandler);
 
