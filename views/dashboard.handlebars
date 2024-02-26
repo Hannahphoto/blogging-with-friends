@@ -1,12 +1,18 @@
 {{#if logged_in}}
     <h2>Dashboard</h2>
-    <div >
+    <br>
+    <div class = "dashboard-container">
     {{#each blogs as |blog|}}
+    <p class = 'containerPost'>
     {{title}},
+    <br>
+    {{body}}
+    </p>
     {{/each}}
+    <br>
     <button type="button" class="btn-primary" id="btn-newPost">New Post</button>
     </div>
-    <div id="postBlog">
+    <div id="postBlog" class = "post-blog-form">
         <h3>Create Post: </h3>
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required>

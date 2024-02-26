@@ -53,16 +53,20 @@ a:hover{
     color: white;
 }
 
+p{
+    margin-left: 200px;
+}
+
 .containerPost {
     margin: 50px;
-    height: 250px;
+    height: 150px;
     border: 3px solid black;
     border-radius: 5px;
-    width: 1100px;
+    width: 900px;
     font-size: 'Georama', sans-serif;
     font-family: 'Unbounded', sans-serif;
     font-size: 15px;
-    font-weight: 200;
+    font-weight: 400;
     position: absolute;
     left: 250px;  /*locolhost is 250*/
     right: 250px;
@@ -138,11 +142,23 @@ a:hover{
     font-size: 20px;
 }
 
+.post-blog-form{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    border: 1px solid black;
+
+}
+
+
+
 #btn-newPost{
     display: flex;
     position: absolute;
-    left: 1540px;
-    top: 200px;
+    left: 840px;
+    top: 185px;
     padding: 10px;
     margin-right: 100px;
 
@@ -156,8 +172,8 @@ a:hover{
 }
 
 #postBlog{
-    /* display: none; */
-    display: block;
+    display: none;
+    top: 250px;
     max-width: 500px;
     margin: 20px;
     padding: 5px;
@@ -165,7 +181,8 @@ a:hover{
     border-radius: 5px;
     height: 720px;
     width: 700px;
-    margin-left: 700px;
+    left: 450px;
+    /* right: 250px; */
 }
 
 #content{
