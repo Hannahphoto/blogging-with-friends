@@ -10,7 +10,7 @@ const createPostHandler = async (event) => {
     const description = document.querySelector('#blog-content');
 
     if(name && description){
-        const response = await fetch(`/api/dashboard`, {
+        const response = await fetch(`/dashboard`, {
             method: 'POST',
             body: JSON.stringify({name, description}),
             headers:{
@@ -29,7 +29,7 @@ const createPostHandler = async (event) => {
 const delButtonHandler = async(event) => {
     if(event.target.hasAttribute('data-id')){
 
-    const response = await fetch(`/api/dashboard/${id}`,{
+    const response = await fetch(`/dashboard/${id}`,{
         method: 'DELETE',
     });
 

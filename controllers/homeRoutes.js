@@ -53,13 +53,13 @@ router.get('/dashboard/:id', async (req, res)=>{
 //use withAuth middleware to prevent access to route
 router.get('/dashboard', withAuth, async (req, res)=>{
     try{
-        //find the logged in user based on the session id
-        const userData = await Blog.findByPk(req.session.user_id, {
+        // find the logged in user based on the session id
+        const userData = await User.findByPk(req.session.userId, {
             attributes: {excludes: ['password']},
             include: [
                 {
                     model: Blog,
-                    attributes: ['username']
+                    attributes: ['content']
             }],
         });
 

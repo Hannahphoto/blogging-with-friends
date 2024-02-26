@@ -6,7 +6,7 @@ router.post('/dashboard', withAuth, async (req, res)=>{
     try{
         const blogData = await Blog.create({
             ...req.body,
-            user_id: req.session.user_id,
+            user_id: req.body.user_id,
         });
         res.status(200).json(blogData);
     }catch(err){
