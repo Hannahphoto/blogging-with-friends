@@ -1,6 +1,9 @@
 {{#if logged_in}}
     <h2>Dashboard</h2>
     <div >
+    {{#each blogs as |blog|}}
+    {{title}},
+    {{/each}}
     <button type="button" class="btn-primary" id="btn-newPost">New Post</button>
     </div>
     <div id="postBlog">

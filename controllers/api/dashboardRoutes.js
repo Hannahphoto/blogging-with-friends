@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const { Blog } = require('../models');
-const withAuth = require('../utils/auth');
+const { Blog } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 router.post('/dashboard', withAuth, async (req, res)=>{
     try{
         const blogData = await Blog.create({
             ...req.body,
-            user_id: req.body.user_id,
+            userId: req.body.userId,
         });
         res.status(200).json(blogData);
     }catch(err){
@@ -19,7 +19,7 @@ router.delete('/:id', withAuth, async (req, res)=>{
         const blogData = await Blog.destroy({
             where: {
                 id: req.params.id,
-                user_id: req.session.user_id,
+                userId: req.session.userId,
             },
         });
         if(!blogData){

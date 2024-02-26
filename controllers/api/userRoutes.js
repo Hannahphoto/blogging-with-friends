@@ -78,7 +78,7 @@ router.get("/getuser", async (req, res)=>{
                 where: {
                     id: req.session.userId,
                     username: req.session.username,
-                    email: req.session.email,
+                    password: req.session.password,
                 },
             }
         );
