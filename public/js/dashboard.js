@@ -52,8 +52,6 @@ const createPostHandler = async (event) => {
     
 };
 
-
-
 // document.querySelector("#btn-newPost").addEventListener('submit', createPostHandler);
 
 const delButtonHandler = async(event) => {
