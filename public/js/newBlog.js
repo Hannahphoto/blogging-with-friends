@@ -4,14 +4,14 @@ const newFormHandler = async function(event){
 
     // const postBlog = document.getElementById("#postBlog").value;
     const title = document.querySelector('input[name ="title"]').value;
-    const body = document.querySelector('textarea[name="content"]').value;
+    const content = document.querySelector('textarea[name="content"]').value;
 
     
-    await fetch(`/api/blogRouts`, {
+    await fetch(`/api/blogRoutes`, {
         method: 'POST',
         body: JSON.stringify({
             title,
-            body,
+            content,
         }),
         headers: { 'Content-Type': 'application/json'},
     });
