@@ -62,10 +62,10 @@ router.post('/login',async (req, res)=> {
 router.post('/logout', (req, res)=>{
     if(req.session.logged_in){
         req.session.destroy(()=>{
-            res.status(204).end({Message:"User has logged out"})
+            res.status(204).send({Message:"User has logged out"})
         });
     }else {
-        res.status(404).end({Message: "Has not logged out"});
+        res.status(404).send({Message: "Has not logged out"});
         
     }
 });

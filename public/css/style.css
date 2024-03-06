@@ -54,12 +54,11 @@ a:hover{
 }
 
 p{
-    margin-left: 200px;
+    margin: 70px;
 }
 
+
 .containerPost {
-    margin: 50px;
-    /* height: px; */
     border: 3px solid black;
     border-radius: 5px;
     width: 900px;
@@ -67,10 +66,9 @@ p{
     font-family: 'Unbounded', sans-serif;
     font-size: 15px;
     font-weight: 400;
-    /* position: ; */
-    left: 250px;  /*locolhost is 250*/
-    right: 250px;
-    
+    justify-content: center;
+    position: relative;
+    left: 18%;  
 }
 
 .login-card{
