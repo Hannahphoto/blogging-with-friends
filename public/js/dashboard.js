@@ -1,4 +1,5 @@
-
+// WHEN I click on the button to add a new blog post
+// THEN I am prompted to enter both a title and contents for my blog post
 document.addEventListener('DOMContentLoaded',function(){
     //select the new post button
     const newPostButton = document.getElementById('btn-newPost');
@@ -18,6 +19,8 @@ document.addEventListener('DOMContentLoaded',function(){
     });
 });
 
+// WHEN I click on the button to create a new blog post
+// THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
 document.addEventListener('DOMContentLoaded',function(){
     const createPostBtn = document.getElementById('btn-createPost');
  
@@ -51,8 +54,39 @@ const createPostHandler = async (event) => {
     }
     
 };
+const showCreateBlogForm = () => {
+    document.getElementById('postBlog').style.display = "block";
+};
 
-// document.querySelector("#btn-newPost").addEventListener('submit', createPostHandler);
+const hideCreateBlogForm = () => {
+    document.getElementById('postBlog').style.display = "none";
+};
+
+
+
+
+// WHEN I click on one of my existing posts in the dashboard
+// THEN I am able to delete or update my post and taken back to an updated dashboard
+const editBlog = document.querySelector('postBlog');
+
+const editFormHandler = async function(event){
+    event.preventDefault();
+
+    const title = document.querySelector('input[name="title"]').value;
+    const body = document.querySelector('textarea[name="content"]').value;
+
+    await fetch(`/api/dashboard/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+            title,
+            body
+        }),
+        headers:{
+            'Content-Type': 'application/json'
+        }
+    });
+    document.location.replace('/dashboard');
+}
 
 const delButtonHandler = async(event) => {
     if(event.target.hasAttribute('data-id')){
@@ -68,44 +102,16 @@ const delButtonHandler = async(event) => {
     }}
 };
 
-const showCreateBlogForm = () => {
-    document.getElementById('postBlog').style.display = "block";
-};
 
-const hideCreateBlogForm = () => {
-    document.getElementById('postBlog').style.display = "none";
-};
+document.addEventListener('DOMContentLoaded', function(){
+    const editPostButton = document.getElementById("btn-editPost");
+    editPostButton.addEventListener('click',editFormHandler )
+});
 
-// WHEN I click on the button to add a new blog post
-// THEN I am prompted to enter both a title and contents for my blog post
-// newPostButton.addEventListener('click', function(){
-//     showCreateBlogForm();
-// });
-
-// WHEN I click on the button to create a new blog post
-// THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
-// createPostButton.addEventListener('click', function(){
-//     //add logic to handle fomr submission
-//     createPostHandler();
-//     //update dashboard with list
-
-//     //hide form after submit.
-//     hideCreateBlogForm();
-// });
-
-// WHEN I click on one of my existing posts in the dashboard
-// THEN I am able to delete or update my post and taken back to an updated dashboard
+document.addEventListener('DOMContentLoaded', function(){
+    const editPostButton = document.getElementById("btn-editPost");
+    editPostButton.addEventListener('click', delButtonHandler )
+});
 
 
 
-
-// document.querySelector('.blog-list').addEventListener('click', delButtonHandler());
-
-
-
-// if(postBlogForm){
-//     postBlogForm.style.display = (postBlogForm.style.display === 'none' || postBlogForm.style.display === '' ) ? 'block': 'none';
-//     }else{
-//         console.error("post blog form not found");
-//     }
-// });
