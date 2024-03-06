@@ -3,11 +3,13 @@
     <br>
     <div class = "dashboard-container">
     {{#each blogs as |blog|}}
-    <p class = 'containerPost'>
-    {{title}},
+    <div class = 'containerPost'>
+    <p>
+    {{blog.title}},
     <br>
-    {{body}}
+    {{blog.body}}
     </p>
+    </div>
     {{/each}}
     <br>
     <button type="button" class="btn-primary" id="btn-newPost">New Post</button>
@@ -21,7 +23,7 @@
         <br>
         <textarea id="content" name="content" rows="35" width="500px" required></textarea>
         <br>
-        <button class="btn-primary" id="#btn-createPost">Create Post</button>
+        <button class="btn-primary" id="btn-createPost">Create Post</button>
     </div>
 
     <script src="/js/dashboard.js"></script>    

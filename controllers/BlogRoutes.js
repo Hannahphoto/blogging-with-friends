@@ -26,3 +26,5 @@ router.get('/dashboard', withAuth, (req,res)=>{
         layout: 'dashboard',
     })
 })
+
+module.exports = router;

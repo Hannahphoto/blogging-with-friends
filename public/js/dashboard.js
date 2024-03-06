@@ -32,12 +32,12 @@ const createPostHandler = async (event) => {
     event.preventDefault();
 
     const title = document.querySelector('#title').value;
-    const content = document.querySelector('#content').value;
-
-    if(title && content){
+    const body = document.querySelector('#content').value;
+    
+    if(title && body){
         const response = await fetch(`/api/dashboard`, {
             method: 'POST',
-            body: JSON.stringify({title, content}),
+            body: JSON.stringify({title, body}),
             headers:{
                 'Content-Type': 'application/json',
             },

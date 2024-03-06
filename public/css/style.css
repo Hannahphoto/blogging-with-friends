@@ -59,7 +59,7 @@ p{
 
 .containerPost {
     margin: 50px;
-    height: 150px;
+    /* height: px; */
     border: 3px solid black;
     border-radius: 5px;
     width: 900px;
@@ -67,7 +67,7 @@ p{
     font-family: 'Unbounded', sans-serif;
     font-size: 15px;
     font-weight: 400;
-    position: absolute;
+    /* position: ; */
     left: 250px;  /*locolhost is 250*/
     right: 250px;
     

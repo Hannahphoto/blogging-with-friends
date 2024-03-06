@@ -1,12 +1,14 @@
-{{#if logged_in}}
 
-    <div class="containerPost">
-        <div class = "dashboard-container">
-    {{#each blogs as |blog|}}
-    <p class = 'containerPost'>
-    {{title}},
-    <br>
-    {{body}}
-    </p>
+
+<div class="containerPost">
+    <div class="dashboard-container">
+        {{#each blogs as |blog|}}
+        <div class="containerPost">
+        <p class='containerPost'>
+            {{blog.title}},
+            <br>
+            {{blog.body}}
+        </p>
+        </div>
+        {{/each}}
     </div>
-{{/if}}
